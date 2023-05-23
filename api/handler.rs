@@ -1,6 +1,6 @@
-use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
 use askama::Template;
 use hello_rust::hello::HelloTemplate;
+use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -8,7 +8,7 @@ async fn main() -> Result<(), Error> {
 }
 
 pub async fn handler(_req: Request) -> Result<Response<Body>, Error> {
-  let hello = HelloTemplate { name: "world" };
+    let hello = HelloTemplate { name: "world" };
     Ok(Response::builder()
         .status(StatusCode::OK)
         .header("Content-Type", "text/html")
